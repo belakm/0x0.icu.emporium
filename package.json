@@ -1,0 +1,27 @@
+{
+  "name": "0x0.icu.emporium",
+  "version": "0.0.1",
+  "description": "GraphQL server",
+  "main": "./api/src/server.js",
+  "exports": "./api/src/server.js",
+  "scripts": {
+    "start": "node ./api/src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/belakm/0x0.icu.emporium.git"
+  },
+  "keywords": [
+    "GraphQl"
+  ],
+  "author": "Mitja Belak",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/belakm/0x0.icu.emporium/issues"
+  },
+  "homepage": "https://github.com/belakm/0x0.icu.emporium#readme",
+  "dependencies": {
+    "apollo-server": "^2.13.1",
+    "graphql": "^15.0.0"
+  }
+}
