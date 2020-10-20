@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/belakm/0x0.icu.emporium#readme",
   "dependencies": {
-    "apollo-server": "^2.13.1",
+    "apollo-server": "^2.14.2",
     "graphql": "^15.0.0"
   }
 }
