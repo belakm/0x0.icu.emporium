@@ -29,10 +29,10 @@ PostgreSQL Database	host: `localhost`, port: `5432`
 
 ## 4. Get this project and setup .env variables
 
-0. Edit files to match your project preferences (eg. replace forum-example)
-1. Clone it `git clone git@github.com:belakm/0x0.icu.emporium.git`
+1. Clone it `git clone https://github.com/belakm/0x0.icu.emporium.git`
 2. Go to its directory `cd 0x0.icu.emporium`
-3. Create new env file and fill in your data `cp example.env .env`
+3. Create new env file by copying example `cp example.env .env`
+4. Fill in the env secrets `vi .env`
 
 ## 5. Build images and run containers
 
