@@ -1,9 +1,9 @@
 version: "3.3"
 services:
   db:
-    container_name: forum-example-db
+    container_name: 0x0-db
     restart: always
-    image: forum-example-db
+    image: 0x0-db
     build:
       context: ./db
     volumes:
@@ -16,9 +16,9 @@ services:
       - 5432:5432
 
   graphql:
-    container_name: forum-example-graphql
+    container_name: 0x0-graphql
     restart: always
-    image: forum-example-graphql
+    image: 0x0-graphql
     build:
         context: ./graphql
     env_file:
