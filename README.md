@@ -33,6 +33,7 @@ PostgreSQL Database	host: `localhost`, port: `5432`
 2. Go to its directory `cd 0x0.icu.emporium`
 3. Create new env file by copying example `cp example.env .env`
 4. Fill in the env secrets `vi .env`
+5. Structure your DB in `/db/init/00_database.sql` and add data to `/db/init/01_data.sql`
 
 ## 5. Build images and run containers
 
