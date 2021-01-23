@@ -43,4 +43,4 @@ PostgreSQL Database	host: `localhost`, port: `5432`
 
 ## OPTIONAL
 
-- Reset containers, images and volumes by running `sh ./clean-reset.sh`
+- Reset containers, images and volumes by running `sh clean-reset.sh`

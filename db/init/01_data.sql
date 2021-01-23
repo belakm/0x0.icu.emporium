@@ -1,10 +1,10 @@
 \connect _0x0_db;
 
-/*Create some dummy users
+/*Create some dummy users*/
 /*INSERT INTO public._0x0.user (username) VALUES
 ('Benjie'),
 ('Singingwolfboy'),
-('Lexius');
+('Lexius');*/
 
 /*Create some dummy posts*/
 /*INSERT INTO public._0x0.post (title, body, author_id) VALUES
