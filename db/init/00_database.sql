@@ -41,7 +41,7 @@ CREATE TABLE _0x0.post (
   updated_at       TIMESTAMP DEFAULT NOW()
 );
 
-COMMENT ON TABLE _0x0.post is 'A forum post written by a user.';
+COMMENT ON TABLE _0x0.post is 'A post made by a user.';
 COMMENT ON COLUMN _0x0.post.id is 'The primary key for the post.';
 COMMENT ON COLUMN _0x0.post.headline is 'The title written by the user.';
 COMMENT ON COLUMN _0x0.post.author_id is 'The id of the author user.';
