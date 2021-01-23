@@ -40,3 +40,7 @@ PostgreSQL Database	host: `localhost`, port: `5432`
 
 1. Build with `docker-compose build`
 2. Run with `docker-compose up`
+
+## OPTIONAL
+
+- Reset containers, images and volumes by running `sh ./clean-reset.sh`
