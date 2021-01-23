@@ -16,7 +16,7 @@ CREATE TABLE _0x0.person (
   about           TEXT,
   created_at      TIMESTAMP DEFAULT NOW(),
   updated_at      TIMESTAMP DEFAULT NOW()
-)
+);
 
 COMMENT ON TABLE _0x0.person is 'A user of the service.';
 COMMENT ON COLUMN _0x0.person.id is 'The primary unique identifier for the person.';
