@@ -34,7 +34,7 @@ services:
       "--port", "5433", 
       "--schema", "0x0", 
       "--default-role", "forum_example_anonymous",
-      "--jwt-secret keyboard_kitten", "${JWT_SECRET}",
+      "--jwt-secret", "${JWT_SECRET}",
       "--jwt-token-identifier", "0x0.jwt_token",
       "--append-plugins", 
       "postgraphile-plugin-connection-filter"
