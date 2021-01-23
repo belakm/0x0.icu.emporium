@@ -36,9 +36,8 @@ services:
       "--default-role", "_0x0_anonymous",
       "--jwt-secret", "${JWT_SECRET}",
       "--jwt-token-identifier", "_0x0.jwt_token",
-      "--append-plugins", 
+      "--append-plugins", "postgraphile-plugin-connection-filter",
       "--enhance-graphiql",
-      "postgraphile-plugin-connection-filter"
     ]
 
   pgadmin:
