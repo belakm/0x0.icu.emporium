@@ -1,4 +1,4 @@
-\connect forum_example;
+\connect _0x0_db;
 
 /*Create some dummy users*/
 INSERT INTO public.user (username) VALUES
