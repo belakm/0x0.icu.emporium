@@ -32,10 +32,10 @@ services:
     command: [
       "--connection", "${DATABASE_URL}", 
       "--port", "5433", 
-      "--schema", "0x0", 
-      "--default-role", "forum_example_anonymous",
+      "--schema", "_0x0",
+      "--default-role", "_0x0_anonymous",
       "--jwt-secret", "${JWT_SECRET}",
-      "--jwt-token-identifier", "0x0.jwt_token",
+      "--jwt-token-identifier", "_0x0.jwt_token",
       "--append-plugins", 
       "postgraphile-plugin-connection-filter"
     ]

@@ -1,4 +1,4 @@
-\connect 0x0_db;
+\connect _0x0_db;
 
 --
 --
@@ -148,15 +148,15 @@ COMMENT ON FUNCTION _0x0.register_person(text, text, text, text) IS 'Registers a
 --
 
 -- create superadmin role
-CREATE ROLE 0x0_postgraphile login password 'change_me';
+CREATE ROLE _0x0_postgraphile login password 'change_me';
 
 -- create anon role
-CREATE ROLE 0x0_anonymous;
-GRANT 0x0_anonymous TO 0x0_postgraphile;
+CREATE ROLE _0x0_anonymous;
+GRANT _0x0_anonymous TO _0x0_postgraphile;
 
 -- create user role
-CREATE ROLE 0x0_person;
-GRANT 0x0_person TO 0x0_postgraphile;
+CREATE ROLE _0x0_person;
+GRANT _0x0_person TO _0x0_postgraphile;
 
 CREATE TYPE _0x0.jwt_token as (
   role TEXT,
@@ -194,28 +194,28 @@ $$ LANGUAGE sql STABLE;
 COMMENT ON FUNCTION _0x0.current_person() IS 'Gets the person who was identified by our JWT.';
 
 -- grant knowledge of 0x0 schema to anons and logged in users
-grant usage on schema 0x0 to 0x0_anonymous, 0x0_person;
+grant usage on schema _0x0 to _0x0_anonymous, _0x0_person;
 
 -- grant anons and logged in users _0x0.person sellected privileges on _0x0.person
-grant select on table _0x0.person to 0x0_anonymous, 0x0_person;
-grant update, delete on table _0x0.person to 0x0_person;
+grant select on table _0x0.person to _0x0_anonymous, _0x0_person;
+grant update, delete on table _0x0.person to _0x0_person;
 
 -- grant anons and logged in users _0x0.person sellected privileges on _0x0.post
-grant select on table _0x0.post to 0x0_anonymous, 0x0_person;
-grant insert, update, delete on table _0x0.post to 0x0_person;
+grant select on table _0x0.post to _0x0_anonymous, _0x0_person;
+grant insert, update, delete on table _0x0.post to _0x0_person;
 --  When a user creates a new _0x0.post they will also need to get the next value in the _0x0.post_id_seq because we use the serial data type for the id column
-grant usage on sequence _0x0.post_id_seq to 0x0_person;
+grant usage on sequence _0x0.post_id_seq to _0x0_person;
 
 -- grant anons and logged in users access to all functions
-grant execute on function _0x0.person_full_name(_0x0.person) to 0x0_anonymous, 0x0_person;
-grant execute on function _0x0.post_summary(_0x0.post, integer, text) to 0x0_anonymous, 0x0_person;
-grant execute on function _0x0.person_latest_post(_0x0.person) to 0x0_anonymous, 0x0_person;
-grant execute on function _0x0.search_posts(text) to 0x0_anonymous, 0x0_person;
-grant execute on function _0x0.authenticate(text, text) to 0x0_anonymous, 0x0_person;
-grant execute on function _0x0.current_person() to 0x0_anonymous, 0x0_person;
+grant execute on function _0x0.person_full_name(_0x0.person) to _0x0_anonymous, _0x0_person;
+grant execute on function _0x0.post_summary(_0x0.post, integer, text) to _0x0_anonymous, _0x0_person;
+grant execute on function _0x0.person_latest_post(_0x0.person) to _0x0_anonymous, _0x0_person;
+grant execute on function _0x0.search_posts(text) to _0x0_anonymous, _0x0_person;
+grant execute on function _0x0.authenticate(text, text) to _0x0_anonymous, _0x0_person;
+grant execute on function _0x0.current_person() to _0x0_anonymous, _0x0_person;
 
 -- except for registration which is only granted to anons
-grant execute on function _0x0.register_person(text, text, text, text) to 0x0_anonymous;
+grant execute on function _0x0.register_person(text, text, text, text) to _0x0_anonymous;
 
 -- ROW LEVEL SECURITY
 alter table _0x0.person enable row level security;
@@ -229,18 +229,18 @@ create policy select_post on _0x0.post for select
   using (true);
 
 -- only logged in users can delete and update their own person data
-create policy update_person on _0x0.person for update to 0x0_person
+create policy update_person on _0x0.person for update to _0x0_person
   using (id = nullif(current_setting('jwt.claims.person_id', true), '')::integer);
 
-create policy delete_person on _0x0.person for delete to 0x0_person
+create policy delete_person on _0x0.person for delete to _0x0_person
   using (id = nullif(current_setting('jwt.claims.person_id', true), '')::integer);
 
 -- only logged in users can update and delete their own posts
-create policy insert_post on _0x0.post for insert to 0x0_person
+create policy insert_post on _0x0.post for insert to _0x0_person
   with check (author_id = nullif(current_setting('jwt.claims.person_id', true), '')::integer);
 
-create policy update_post on _0x0.post for update to 0x0_person
+create policy update_post on _0x0.post for update to _0x0_person
   using (author_id = nullif(current_setting('jwt.claims.person_id', true), '')::integer);
 
-create policy delete_post on _0x0.post for delete to 0x0_person
+create policy delete_post on _0x0.post for delete to _0x0_person
   using (author_id = nullif(current_setting('jwt.claims.person_id', true), '')::integer);
