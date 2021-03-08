@@ -9,7 +9,7 @@ WORKDIR /home/node/app
 COPY ./src/package*.json .
 
 # Copy plugins
-COPY ./src/plugins/ /plugins/
+COPY ./src/plugins/ ./plugins/
 
 RUN chown -R node:node /home/node/app
 
