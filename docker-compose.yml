@@ -20,15 +20,15 @@ services:
     restart: always
     image: 0x0-graphql
     build:
-        context: ./graphql
+      context: ./graphql
     env_file:
-        - ./.env
+      - ./.env
     depends_on:
-        - db
+      - db
     networks:
-        - network
+      - network
     ports:
-        - 5433:5433
+      - 5433:5433
 
   pgadmin:
     container_name: pgadmin_container
