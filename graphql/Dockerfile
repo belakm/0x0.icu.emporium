@@ -10,7 +10,7 @@ COPY ./src/package*.json .
 RUN chown -R node:node /home/node/app
 
 # Copy plugins
-COPY ./src/plugins/* /plugins/
+COPY ./src/plugins/ /plugins/
 
 # Install dependencies
 USER node
