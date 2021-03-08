@@ -1,5 +1,10 @@
 const http = require("http");
-const { postgraphile } = require("postgraphile");   
+const { postgraphile, makePluginHook } = require("postgraphile");   
+const { makeAllowedOriginTweak } = require("./cors-plugin")
+
+const pluginHook = makePluginHook([
+  makeAllowedOriginTweak("localhost"),
+]);
 
 http
   .createServer(
@@ -7,7 +12,8 @@ http
       watchPg: true,
       graphiql: true,
       enhanceGraphiql: true,
-      retryOnInitFail: true
+      retryOnInitFail: true,
+      pluginHook
     })
   )
   .listen(process.env.PORT);
