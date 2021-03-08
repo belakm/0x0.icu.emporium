@@ -1,0 +1,16 @@
+{
+  "name": "0x0_postgraphile",
+  "version": "1.0.0",
+  "description": "Postgraphile as a library",
+  "main": "server.js",
+  "keywords": [
+    "postgraphile",
+    "node"
+  ],
+  "author": "Mitja Belak",
+  "license": "ISC",
+  "dependencies": {
+    "postgraphile": "^4.11.0",
+    "postgraphile-plugin-connection-filter": "^2.1.1"
+  }
+}

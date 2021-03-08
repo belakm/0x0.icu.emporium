@@ -29,16 +29,6 @@ services:
         - network
     ports:
         - 5433:5433
-    command: [
-      "--connection", "${DATABASE_URL}", 
-      "--port", "5433", 
-      "--schema", "_0x0",
-      "--default-role", "_0x0_anonymous",
-      "--jwt-secret", "${JWT_SECRET}",
-      "--jwt-token-identifier", "_0x0.jwt_token",
-      "--append-plugins", "postgraphile-plugin-connection-filter",
-      "--enhance-graphiql",
-    ]
 
   pgadmin:
     container_name: pgadmin_container

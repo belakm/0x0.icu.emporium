@@ -19,7 +19,7 @@ PostgreSQL Database	host: `localhost`, port: `5432`
 1. `wget https://github.com/k4mrul/digitalocean-alpine/raw/master/digitalocean-alpine.sh`
 2. `chmod +x digitalocean-alpine.sh`
 3. `./digitalocean-alpine.sh --rebuild`
-4. After system reboots, re-log and setup alpine via `setup-alpine` command.
+4. After system reboots, reconnect and setup alpine via `setup-alpine` command.
 
 ## 3. Add docker, docker-compose and git
 
