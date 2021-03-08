@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node:lts-alpine
 LABEL description="Instant high-performance GraphQL API for your PostgreSQL database https://github.com/graphile/postgraphile"
 
 # Set Node.js app folder
@@ -8,6 +8,9 @@ WORKDIR /home/node/app
 # Copy dependencies
 COPY ./src/package*.json .
 RUN chown -R node:node /home/node/app
+
+# Copy plugins
+COPY ./src/plugins /plugins
 
 # Install dependencies
 USER node
