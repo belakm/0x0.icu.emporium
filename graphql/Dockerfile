@@ -7,10 +7,11 @@ WORKDIR /home/node/app
 
 # Copy dependencies
 COPY ./src/package*.json .
-RUN chown -R node:node /home/node/app
 
 # Copy plugins
 COPY ./src/plugins/ /plugins/
+
+RUN chown -R node:node /home/node/app
 
 # Install dependencies
 USER node
