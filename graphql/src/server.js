@@ -1,14 +1,14 @@
-const http = require("http");
-const { postgraphile, makePluginHook } = require("postgraphile");   
-const { makeAllowedOriginTweak } = require("./cors-plugin")
+import * as http from 'http';
+import { postgraphile, makePluginHook } from 'postgraphile'
+import { makeAllowedOriginTweak } from './cors-plugin'
 
 const pluginHook = makePluginHook([
-  makeAllowedOriginTweak("localhost"),
+  makeAllowedOriginTweak('localhost'),
 ]);
 
 http
   .createServer(
-    postgraphile(process.env.DATABASE_URL, "_0x0", {
+    postgraphile(process.env.DATABASE_URL, '_0x0', {
       watchPg: true,
       graphiql: true,
       enhanceGraphiql: true,

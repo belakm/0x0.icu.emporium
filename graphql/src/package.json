@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Postgraphile as a library",
   "main": "server.js",
+  "type": "module",
   "keywords": [
     "postgraphile",
     "node"
