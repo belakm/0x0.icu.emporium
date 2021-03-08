@@ -1,6 +1,6 @@
 import * as http from 'http';
 import { postgraphile, makePluginHook } from 'postgraphile'
-import { makeAllowedOriginTweak } from './plugins/cors'
+import makeAllowedOriginTweak from './plugins/cors'
 
 const pluginHook = makePluginHook([
   makeAllowedOriginTweak('localhost'),
