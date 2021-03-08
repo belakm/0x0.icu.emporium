@@ -7,6 +7,7 @@ http
       watchPg: true,
       graphiql: true,
       enhanceGraphiql: true,
+      retryOnInitFail: true
     })
   )
   .listen(process.env.PORT);
