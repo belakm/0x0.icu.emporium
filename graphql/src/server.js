@@ -3,7 +3,7 @@ import { postgraphile, makePluginHook } from 'postgraphile'
 import makeAllowedOriginTweak from "./plugins/cors.js"
 
 const pluginHook = makePluginHook([
-  makeAllowedOriginTweak('localhost:1337'),
+  makeAllowedOriginTweak('http://localhost:1337'),
 ]);
 
 http
