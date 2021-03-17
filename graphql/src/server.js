@@ -37,7 +37,7 @@ app.use(postgraphile(process.env.DATABASE_URL, '_0x0', {
 const server = app.listen(process.env.PORT, () => {
   const address = server.address();
   if (typeof address !== 'string') {
-    const href = `http://localhost:${address.port}${options.graphiqlRoute || '/graphiql'}`;
+    const href = `http://localhost:${address.port}/graphiql}`;
     console.log(`PostGraphiQL available at ${href} 🚀`);
   } else {
     console.log(`PostGraphile listening on ${address} 🚀`);
