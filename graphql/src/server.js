@@ -34,6 +34,7 @@ app.use(postgraphile(process.env.DATABASE_URL, '_0x0', {
   jwtVerifyOptions: {
     audience: null
   },
+  jwtPgTypeIdentifier: '_0x0.jwt_token', 
   pluginHook
 }))
 
