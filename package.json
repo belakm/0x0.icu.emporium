@@ -1,9 +1,8 @@
 {
   "name": "0x0.icu.emporium",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Postgraphile graphQL server",
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/belakm/0x0.icu.emporium.git"
