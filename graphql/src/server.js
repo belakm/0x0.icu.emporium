@@ -30,6 +30,10 @@ app.use(postgraphile(process.env.DATABASE_URL, '_0x0', {
   graphiql: true,
   enhanceGraphiql: true,
   retryOnInitFail: true,
+  jwtSecret: process.env.JWT_SECRET,
+  jwtVerifyOptions: {
+    audience: null
+  },
   pluginHook
 }))
 
