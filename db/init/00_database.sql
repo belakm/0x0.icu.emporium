@@ -176,7 +176,7 @@ begin
   where a.email = $1;
 
   if account.password_hash = crypt(password, account.password_hash) then
-    return ('0x0_person', account.person_id, extract(epoch from (now() + interval '1 day')))::_0x0.jwt_token;
+    return ('_0x0_person', account.person_id, extract(epoch from (now() + interval '1 day')))::_0x0.jwt_token;
   else
     return null;
   end if;
