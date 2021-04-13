@@ -26,19 +26,20 @@ COMMENT ON COLUMN _0x0.person.about is 'A short description about the user, writ
 COMMENT ON COLUMN _0x0.person.created_at is 'The time this person was created.';
 
 CREATE TYPE _0x0.post_topic AS ENUM(
-  'shitpost',
-  'good shit',
-  'oc'
+  'KERNEL_PANIC',
+  'PORTFOLIO'
 );
 
 CREATE TABLE _0x0.post (
-  id               SERIAL PRIMARY KEY,
-  author_id        INTEGER NOT NULL REFERENCES _0x0.person(id),
-  headline         TEXT NOT NULL CHECK (char_length(headline) < 280),
-  body             TEXT,
-  topic            _0x0.post_topic,
-  created_at       TIMESTAMP DEFAULT NOW(),
-  updated_at       TIMESTAMP DEFAULT NOW()
+  id                SERIAL PRIMARY KEY,
+  author_id         INTEGER NOT NULL REFERENCES _0x0.person(id),
+  headline          TEXT NOT NULL CHECK (char_length(headline) < 280),
+  body              TEXT,
+  topic             _0x0.post_topic,
+  media             BYTEA NOT NULL,
+  media_type        TEXT NOT NULL CHECK (char_length(media_type) < 96),
+  created_at        TIMESTAMP DEFAULT NOW(),
+  updated_at        TIMESTAMP DEFAULT NOW()
 );
 
 COMMENT ON TABLE _0x0.post is 'A post made by a user.';
@@ -46,6 +47,8 @@ COMMENT ON COLUMN _0x0.post.id is 'The primary key for the post.';
 COMMENT ON COLUMN _0x0.post.headline is 'The title written by the user.';
 COMMENT ON COLUMN _0x0.post.author_id is 'The id of the author user.';
 COMMENT ON COLUMN _0x0.post.topic is 'The topic this has been posted in.';
+COMMENT ON COLUMN _0x0.post.media is 'The base64 encoded media file.';
+COMMENT ON COLUMN _0x0.post.media_type is 'The type of media.';
 COMMENT ON COLUMN _0x0.post.body is 'The main body text of our post.';
 COMMENT ON COLUMN _0x0.post.created_at is 'The time this post was created.';
 

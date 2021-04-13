@@ -4,10 +4,11 @@ import compression from 'compression';
 import bodyParser from 'body-parser'
 import { postgraphile, makePluginHook } from 'postgraphile'
 import makeAllowedOriginTweak from "./plugins/cors.js"
+import BYTEA_Plugin from "./plugins/bytea.js"
 
 // allow localhost development
 const pluginHook = makePluginHook([
-  makeAllowedOriginTweak('http://localhost:1337'),
+  makeAllowedOriginTweak('http://localhost:1337')
 ]);
 
 const app = express()
@@ -20,7 +21,7 @@ app.use(helmet())
 
 // body-parser
 const { json, urlencoded, text } = bodyParser
-app.use(json());
+app.use(json({ limit: '50mb' }));
 app.use(urlencoded({ extended: false }));
 app.use(text({ type: 'application/graphql' }));
 
@@ -35,7 +36,8 @@ app.use(postgraphile(process.env.DATABASE_URL, '_0x0', {
     audience: null
   },
   jwtPgTypeIdentifier: '_0x0.jwt_token', 
-  pluginHook
+  pluginHook,
+  appendPlugins: [BYTEA_Plugin]
 }))
 
 // start express server
